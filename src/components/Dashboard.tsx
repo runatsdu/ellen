@@ -23,8 +23,8 @@ export default function Dashboard({ user, onSignOut }: DashboardProps) {
                 <User className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">Welcome!</h1>
-                <p className="text-gray-600">You're successfully signed in</p>
+                <h1 className="text-2xl font-bold text-gray-900">Velkommen!</h1>
+                <p className="text-gray-600">Du er nu logget ind</p>
               </div>
             </div>
             <button
@@ -32,7 +32,7 @@ export default function Dashboard({ user, onSignOut }: DashboardProps) {
               className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors duration-200"
             >
               <LogOut className="w-4 h-4" />
-              Sign out
+              Log ud
             </button>
           </div>
 
@@ -40,33 +40,33 @@ export default function Dashboard({ user, onSignOut }: DashboardProps) {
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-xl border border-green-100">
               <div className="flex items-center gap-3 mb-4">
                 <Shield className="w-8 h-8 text-green-600" />
-                <h2 className="text-lg font-semibold text-gray-900">Authentication Status</h2>
+                <h2 className="text-lg font-semibold text-gray-900">Godkendelsesstatus</h2>
               </div>
               <div className="space-y-2 text-sm">
-                <p><span className="font-medium">Email:</span> {user?.email}</p>
-                <p><span className="font-medium">User ID:</span> {user?.id}</p>
-                <p><span className="font-medium">Last sign in:</span> {new Date(user?.last_sign_in_at).toLocaleString()}</p>
+                <p><span className="font-medium">E-mail:</span> {user?.email}</p>
+                <p><span className="font-medium">Bruger-ID:</span> {user?.id}</p>
+                <p><span className="font-medium">Seneste login:</span> {new Date(user?.last_sign_in_at).toLocaleString()}</p>
               </div>
             </div>
 
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-100">
-              <h2 className="text-lg font-semibold text-gray-900 mb-4">Magic Link Benefits</h2>
+              <h2 className="text-lg font-semibold text-gray-900 mb-4">Magic Link fordele</h2>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  No passwords to remember
+                  Ingen adgangskoder at huske
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  Enhanced security
+                  Forbedret sikkerhed
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  Seamless user experience
+                  Problemfri brugeroplevelse
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  Reduced friction
+                  Reduceret friktion
                 </li>
               </ul>
             </div>
