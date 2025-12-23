@@ -10,7 +10,7 @@ interface AuthFormProps {
 export default function AuthForm({ onSuccess, onFakeLogin }: AuthFormProps) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [authMode, setAuthMode] = useState<'password' | 'magiclink'>('password')
+  const [authMode, setAuthMode] = useState<'password' | 'magiclink'>('magiclink')
   const [isSignUp, setIsSignUp] = useState(false)
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
