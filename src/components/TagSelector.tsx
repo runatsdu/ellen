@@ -101,7 +101,7 @@ export default function TagSelector({ selectedTags, onTagsChange, disabled }: Ta
                 setShowDropdown(true)
               }}
               onFocus={() => setShowDropdown(true)}
-              placeholder="Search and add tags..."
+              placeholder="Søg og tilføj tags..."
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 pl-10"
             />
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -113,11 +113,11 @@ export default function TagSelector({ selectedTags, onTagsChange, disabled }: Ta
               {loading ? (
                 <div className="p-3 text-center text-gray-500">
                   <div className="w-4 h-4 border-2 border-indigo-600 border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
-                  Loading tags...
+                  Indlæser tags...
                 </div>
               ) : filteredTags.length === 0 ? (
                 <div className="p-3 text-center text-gray-500">
-                  {searchTerm ? 'No matching tags found' : 'No more tags available'}
+                  {searchTerm ? 'Ingen matchende tags fundet' : 'Ingen flere tags tilgængelige'}
                 </div>
               ) : (
                 <div className="py-1">
@@ -156,7 +156,7 @@ export default function TagSelector({ selectedTags, onTagsChange, disabled }: Ta
       )}
 
       <p className="text-xs text-gray-500">
-        Add relevant tags to help categorize and search for this question
+        Tilføj relevante tags for at hjælpe med at kategorisere og søge efter dette spørgsmål
       </p>
     </div>
   )

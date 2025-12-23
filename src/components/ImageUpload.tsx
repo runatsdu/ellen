@@ -86,7 +86,7 @@ export default function ImageUpload({ onImageProcessed, currentImage, disabled }
   return (
     <div className="space-y-4">
       <label className="block text-sm font-medium text-gray-700">
-        Question Image (Optional)
+        Spørgsmålsbillede (valgfrit)
       </label>
       
       {hasImage ? (
@@ -114,12 +114,12 @@ export default function ImageUpload({ onImageProcessed, currentImage, disabled }
             <div className="bg-green-50 border border-green-200 rounded-lg p-3">
               <div className="flex items-center gap-2 mb-2">
                 <CheckCircle className="w-4 h-4 text-green-600" />
-                <span className="text-sm font-medium text-green-800">Image processed successfully</span>
+                <span className="text-sm font-medium text-green-800">Billede behandlet succesfuldt</span>
               </div>
               <div className="text-xs text-green-700 space-y-1">
-                <p>Original size: {formatFileSize(processedImage.originalSize)}</p>
-                <p>Optimized size: {formatFileSize(processedImage.processedSize)}</p>
-                <p>Savings: {Math.round((1 - processedImage.processedSize / processedImage.originalSize) * 100)}%</p>
+                <p>Oprindelig størrelse: {formatFileSize(processedImage.originalSize)}</p>
+                <p>Optimeret størrelse: {formatFileSize(processedImage.processedSize)}</p>
+                <p>Besparelse: {Math.round((1 - processedImage.processedSize / processedImage.originalSize) * 100)}%</p>
               </div>
             </div>
           )}
@@ -150,7 +150,7 @@ export default function ImageUpload({ onImageProcessed, currentImage, disabled }
             {processing ? (
               <div className="space-y-2">
                 <div className="w-8 h-8 border-2 border-indigo-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
-                <p className="text-sm text-gray-600">Processing image...</p>
+                <p className="text-sm text-gray-600">Behandler billede...</p>
               </div>
             ) : (
               <div className="space-y-2">
@@ -163,10 +163,10 @@ export default function ImageUpload({ onImageProcessed, currentImage, disabled }
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">
-                    {dragActive ? 'Drop image here' : 'Click to upload or drag and drop'}
+                    {dragActive ? 'Slip billedet her' : 'Klik for at uploade eller træk og slip'}
                   </p>
                   <p className="text-xs text-gray-500 mt-1">
-                    JPEG, PNG, WebP, or GIF up to 10MB
+                    JPEG, PNG, WebP eller GIF op til 10MB
                   </p>
                 </div>
               </div>
@@ -183,7 +183,7 @@ export default function ImageUpload({ onImageProcessed, currentImage, disabled }
       )}
 
       <p className="text-xs text-gray-500">
-        Images are automatically converted to WebP format and optimized for web delivery
+        Billeder konverteres automatisk til WebP-format og optimeres til weblevering
       </p>
     </div>
   )

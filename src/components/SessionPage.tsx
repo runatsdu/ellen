@@ -287,7 +287,7 @@ export default function SessionPage({ user }: SessionPageProps) {
       <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center">
         <div className="text-center">
           <div className="w-8 h-8 border-2 border-indigo-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading session...</p>
+          <p className="text-gray-600">Indlæser session...</p>
         </div>
       </div>
     )
@@ -302,7 +302,7 @@ export default function SessionPage({ user }: SessionPageProps) {
             onClick={() => navigate('/')}
             className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
           >
-            Back to Dashboard
+            Tilbage til Dashboard
           </button>
         </div>
       </div>
@@ -417,9 +417,9 @@ export default function SessionPage({ user }: SessionPageProps) {
         {/* Question Content */}
         <div className="bg-white rounded-2xl shadow-xl border border-gray-100 mb-8">
           <div className="p-6 border-b border-gray-100">
-            <h2 className="text-xl font-bold text-gray-900">Current Question</h2>
+            <h2 className="text-xl font-bold text-gray-900">Nuværende spørgsmål</h2>
             <p className="text-gray-600">
-              Answer the question below
+              Besvar spørgsmålet nedenfor
             </p>
           </div>
           
@@ -427,13 +427,13 @@ export default function SessionPage({ user }: SessionPageProps) {
             {expired ? (
               <div className="text-center py-12">
                 <Clock className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-lg font-medium text-gray-900 mb-2">Session Expired</h3>
-                <p className="text-gray-600">This session is no longer active</p>
+                <h3 className="text-lg font-medium text-gray-900 mb-2">Session udløbet</h3>
+                <p className="text-gray-600">Denne session er ikke længere aktiv</p>
               </div>
             ) : questionLoading ? (
               <div className="text-center py-12">
                 <div className="w-8 h-8 border-2 border-indigo-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                <p className="text-gray-600">Loading question...</p>
+                <p className="text-gray-600">Indlæser spørgsmål...</p>
               </div>
             ) : currentQuestion ? (
               <div className="space-y-6">
@@ -458,7 +458,7 @@ export default function SessionPage({ user }: SessionPageProps) {
 
                 {/* Answer Options */}
                 <div className="space-y-3">
-                  <h4 className="text-lg font-semibold text-gray-900">Choose your answer:</h4>
+                  <h4 className="text-lg font-semibold text-gray-900">Vælg dit svar:</h4>
                   {currentQuestion.answers.map((answer, index) => {
                     const isSelected = selectedAnswer === answer.id
                     const isCorrect = answer.is_correct
@@ -512,14 +512,14 @@ export default function SessionPage({ user }: SessionPageProps) {
                       disabled={!selectedAnswer}
                       className="px-8 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
                     >
-                      Submit Answer
+                      Indsend svar
                     </button>
                   ) : (
                     <button
                       onClick={handleNextQuestion}
                       className="px-8 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all duration-200"
                     >
-                      Next Question
+                      Næste spørgsmål
                     </button>
                   )}
                 </div>
@@ -527,9 +527,9 @@ export default function SessionPage({ user }: SessionPageProps) {
             ) : (
               <div className="text-center py-12">
                 <FileText className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-lg font-medium text-gray-900 mb-2">No Questions Available</h3>
+                <h3 className="text-lg font-medium text-gray-900 mb-2">Ingen spørgsmål tilgængelige</h3>
                 <p className="text-gray-600">
-                  There are no questions available for this session topic.
+                  Der er ingen spørgsmål tilgængelige for dette sessionemne.
                 </p>
               </div>
             )}
