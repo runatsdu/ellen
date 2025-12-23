@@ -26,17 +26,17 @@ export default function AuthForm({ onSuccess, onFakeLogin }: AuthFormProps) {
     e.preventDefault()
 
     if (!email) {
-      setMessage({ type: 'error', text: 'Please enter your email address' })
+      setMessage({ type: 'error', text: 'Indtast venligst din e-mailadresse' })
       return
     }
 
     if (authMode === 'password' && !password) {
-      setMessage({ type: 'error', text: 'Please enter your password' })
+      setMessage({ type: 'error', text: 'Indtast venligst din adgangskode' })
       return
     }
 
     if (authMode === 'password' && password.length < 6) {
-      setMessage({ type: 'error', text: 'Password must be at least 6 characters' })
+      setMessage({ type: 'error', text: 'Adgangskode skal være mindst 6 tegn' })
       return
     }
 
@@ -57,7 +57,7 @@ export default function AuthForm({ onSuccess, onFakeLogin }: AuthFormProps) {
         } else {
           setMessage({
             type: 'success',
-            text: 'Check your email for the magic link to sign in!'
+            text: 'Tjek din e-mail for magic link til login!'
           })
           setEmail('')
           onSuccess?.()
@@ -74,7 +74,7 @@ export default function AuthForm({ onSuccess, onFakeLogin }: AuthFormProps) {
           } else {
             setMessage({
               type: 'success',
-              text: 'Account created successfully! You are now logged in.'
+              text: 'Konto oprettet! Du er nu logget ind.'
             })
             onSuccess?.()
           }
@@ -94,7 +94,7 @@ export default function AuthForm({ onSuccess, onFakeLogin }: AuthFormProps) {
     } catch (error) {
       setMessage({
         type: 'error',
-        text: 'An unexpected error occurred. Please try again.'
+        text: 'Der opstod en uventet fejl. Prøv venligst igen.'
       })
     } finally {
       setLoading(false)
@@ -114,13 +114,13 @@ export default function AuthForm({ onSuccess, onFakeLogin }: AuthFormProps) {
           </div>
           <h1 className="text-2xl font-bold text-gray-900 mb-2">
             {authMode === 'magiclink'
-              ? 'Welcome'
-              : isSignUp ? 'Create Account' : 'Welcome Back'}
+              ? 'Velkommen'
+              : isSignUp ? 'Opret konto' : 'Velkommen tilbage'}
           </h1>
           <p className="text-gray-600">
             {authMode === 'magiclink'
-              ? 'Sign in with a magic link'
-              : isSignUp ? 'Sign up to get started' : 'Sign in to your account'}
+              ? 'Log ind med et magic link'
+              : isSignUp ? 'Tilmeld dig for at komme i gang' : 'Log ind på din konto'}
           </p>
         </div>
 
@@ -138,7 +138,7 @@ export default function AuthForm({ onSuccess, onFakeLogin }: AuthFormProps) {
             }`}
           >
             <Lock className="w-4 h-4 inline mr-1.5" />
-            Password
+            Adgangskode
           </button>
           <button
             type="button"
@@ -160,7 +160,7 @@ export default function AuthForm({ onSuccess, onFakeLogin }: AuthFormProps) {
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-              Email address
+              E-mailadresse
             </label>
             <div className="relative">
               <input
@@ -168,7 +168,7 @@ export default function AuthForm({ onSuccess, onFakeLogin }: AuthFormProps) {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
+                placeholder="Indtast din e-mail"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 pl-11"
                 disabled={loading}
               />
@@ -179,7 +179,7 @@ export default function AuthForm({ onSuccess, onFakeLogin }: AuthFormProps) {
           {authMode === 'password' && (
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-                Password
+                Adgangskode
               </label>
               <div className="relative">
                 <input
@@ -187,7 +187,7 @@ export default function AuthForm({ onSuccess, onFakeLogin }: AuthFormProps) {
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter your password"
+                  placeholder="Indtast din adgangskode"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 pl-11"
                   disabled={loading}
                 />
@@ -220,8 +220,8 @@ export default function AuthForm({ onSuccess, onFakeLogin }: AuthFormProps) {
               <>
                 <Loader2 className="w-5 h-5 animate-spin" />
                 {authMode === 'magiclink'
-                  ? 'Sending magic link...'
-                  : isSignUp ? 'Creating account...' : 'Signing in...'}
+                  ? 'Sender magic link...'
+                  : isSignUp ? 'Opretter konto...' : 'Logger ind...'}
               </>
             ) : (
               <>
@@ -232,7 +232,7 @@ export default function AuthForm({ onSuccess, onFakeLogin }: AuthFormProps) {
                 )}
                 {authMode === 'magiclink'
                   ? 'Send Magic Link'
-                  : isSignUp ? 'Create Account' : 'Sign In'}
+                  : isSignUp ? 'Opret konto' : 'Log ind'}
               </>
             )}
           </button>
@@ -249,8 +249,8 @@ export default function AuthForm({ onSuccess, onFakeLogin }: AuthFormProps) {
               className="text-sm text-blue-600 hover:text-blue-700 font-medium"
             >
               {isSignUp
-                ? 'Already have an account? Sign in'
-                : "Don't have an account? Sign up"}
+                ? 'Har du allerede en konto? Log ind'
+                : 'Har du ikke en konto? Tilmeld dig'}
             </button>
           </div>
         )}
@@ -258,7 +258,7 @@ export default function AuthForm({ onSuccess, onFakeLogin }: AuthFormProps) {
         {authMode === 'magiclink' && (
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-500">
-              No password required. We'll send you a secure link to sign in.
+              Ingen adgangskode påkrævet. Vi sender dig et sikkert link til login.
             </p>
           </div>
         )}
@@ -271,40 +271,40 @@ export default function AuthForm({ onSuccess, onFakeLogin }: AuthFormProps) {
               className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700 mx-auto"
             >
               <Settings className="w-4 h-4" />
-              Development Mode
+              Udviklingstilstand
             </button>
-            
+
             {showDevMode && (
               <div className="mt-4 space-y-2">
-                <p className="text-xs text-gray-500 text-center mb-3">Quick login for testing:</p>
+                <p className="text-xs text-gray-500 text-center mb-3">Hurtig login til test:</p>
                 <div className="grid gap-2">
                   <button
                     type="button"
                     onClick={() => handleFakeLogin('teacher1@school.edu')}
                     className="w-full px-3 py-2 text-sm bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors"
                   >
-                    Login as Teacher 1
+                    Log ind som Lærer 1
                   </button>
                   <button
                     type="button"
                     onClick={() => handleFakeLogin('teacher2@school.edu')}
                     className="w-full px-3 py-2 text-sm bg-green-50 text-green-700 rounded-lg hover:bg-green-100 transition-colors"
                   >
-                    Login as Teacher 2
+                    Log ind som Lærer 2
                   </button>
                   <button
                     type="button"
                     onClick={() => handleFakeLogin('admin@school.edu')}
                     className="w-full px-3 py-2 text-sm bg-purple-50 text-purple-700 rounded-lg hover:bg-purple-100 transition-colors"
                   >
-                    Login as Admin
+                    Log ind som Admin
                   </button>
                   <button
                     type="button"
                     onClick={() => handleFakeLogin('student@school.edu')}
                     className="w-full px-3 py-2 text-sm bg-gray-50 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
                   >
-                    Login as Student (Non-teacher)
+                    Log ind som Elev (Ikke-lærer)
                   </button>
                 </div>
               </div>
